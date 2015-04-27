@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "充值";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="tit">请充值</h2>
+
+<a href="#" id="recharge">~~~点我充值~~~</a>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // alert(1);
+            var pp = null;
+            $('#recharge').click(function () {
+                $.get('/ad/api/PayHelper', null, function (data) {
+                    pp = data;
+
+                    // alert(pp);
+
+                    WeixinJSBridge.invoke('getBrandWCPayRequest', pp, function (res) {
+                        alert('finsish')
+                        if (res.err_msg == "get_brand_wcpay_request:ok") {
+                            alert('ok!!');
+                            $('#tit').html("成功！！");
+                        } else {
+                            $('#tit').html("失败！！");
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+}

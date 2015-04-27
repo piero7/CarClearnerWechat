@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace WeChatPay.Controllers
+{
+    public class TestRechargeController : Controller
+    {
+        //
+        // GET: /TestRecharge/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Finish()
+        {
+            return View();
+        }
+ 
+    }
+}
